@@ -40,17 +40,7 @@ public class Hybrid extends Car implements CalculateGasoline,CalculateTheBattery
                         }
     }
 
-    public Hybrid(String numDoors, boolean polarized, TypeCar theTypeCar, double gasolineConsume,
-            double gasolineCapacity, TypeGasoline typeGasoline, TypeCharger typeCharger, double batteryDuration,
-            double batteryConsume) {
-        super(numDoors, polarized, theTypeCar);
-        this.gasolineConsume = gasolineConsume;
-        this.gasolineCapacity = gasolineCapacity;
-        this.typeGasoline = typeGasoline;
-        this.typeCharger = typeCharger;
-        this.batteryDuration = batteryDuration;
-        this.batteryConsume = batteryConsume;
-    }
+    
 
     @Override
     public double calculateSellPrice(){

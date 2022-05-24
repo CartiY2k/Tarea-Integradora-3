@@ -1,6 +1,8 @@
 package model;
 import java.util.ArrayList;
 
+import javax.sound.midi.Track;
+
 public class Company{
     private String name; 
     //Relation:
@@ -102,6 +104,9 @@ public class Company{
             if(vehicles.get(i).getPlaca().equalsIgnoreCase(plate)){
                 answer = false;
             }
+            if(vehicles.get(i).getPlaca().equalsIgnoreCase("It will be assign")){
+                answer = true;
+            }
         }
         return answer;
     }
@@ -158,6 +163,7 @@ public class Company{
                 if(vehicles.get(i).getPlaca().equalsIgnoreCase(plate)){
                     vehicles.get(i).SoatAnDocum(soatMoney,soatDay,soatMonth,soatYear,soatImage,technoMDay,technoMMonth,technoMYear,technoImage);
                     continue1 = false;
+                    vehicles.get(i).fixSellprice(soatYear,technoMYear);
                     
                 }
             }
@@ -176,14 +182,14 @@ public class Company{
         int lastVehicle = vehicles.size()-1;
         if(model==2014){
             for (int i = 0; i < parking[0].length&&flag != false; i++) {
-                if(parking[i][0]==null){
+                if(parking[i][0]==null&&vehicles.get(lastVehicle).getAlreadyUsed()==true){
                     parking[i][0]=vehicles.get(lastVehicle);
                     flag = false;
                 }
             }
         }else if(model==2013){
             for (int i = 0; i < parking[0].length&&flag != false; i++) {
-                if(parking[i][1]==null){
+                if(parking[i][1]==null&&vehicles.get(lastVehicle).getAlreadyUsed()==true){
                     parking[i][1]=vehicles.get(lastVehicle);
                     flag = false;
                 }
@@ -191,7 +197,7 @@ public class Company{
 
         }else if(model==2012){
             for (int i = 0; i < parking[0].length&&flag != false; i++) {
-                if(parking[i][2]==null){
+                if(parking[i][2]==null&&vehicles.get(lastVehicle).getAlreadyUsed()==true){
                     parking[i][2]=vehicles.get(lastVehicle);
                     flag = false;
                 }
@@ -199,14 +205,14 @@ public class Company{
 
         }else if(model==2011){
             for (int i = 0; i < parking[0].length&&flag != false; i++) {
-                if(parking[i][3]==null){
+                if(parking[i][3]==null&&vehicles.get(lastVehicle).getAlreadyUsed()==true){
                     parking[i][3]=vehicles.get(lastVehicle);
                     flag = false;
                 }
             }
         }else if(model<2011){
             for (int i = 0; i < parking[0].length&&flag != false; i++) {
-                if(parking[i][4]==null){
+                if(parking[i][4]==null&&vehicles.get(lastVehicle).getAlreadyUsed()==true){
                     parking[i][4]=vehicles.get(lastVehicle);
                     flag = false;
                 }

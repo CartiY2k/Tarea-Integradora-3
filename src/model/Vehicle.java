@@ -1,4 +1,5 @@
 package model;
+import java.time.LocalDate;
 
 public abstract class Vehicle {
     //Attributes
@@ -74,16 +75,13 @@ public abstract class Vehicle {
     public double seachDocuments(){
         double anExtra = 0;
         for (int i = 0; i < documents.length-1; i++) {            
-            if(documents[i].getDate().getYear()<2022){
+            if(documents[i].getDate().getYear()<2020){
                 anExtra += 500000;
             }
         }
         return anExtra;
     }
-    //Relations:
-    public Vehicle(){
-
-    }
+    
     public boolean getAlreadyUsed() {
         return alreadyUsed;
     }
@@ -144,6 +142,15 @@ public abstract class Vehicle {
          String soatImage,int technoMDay,int technoMMonth,int technoMYear,String technoImage){
          documents[0] = new Soat("0",soatMoney,soatDay,soatMonth,soatYear,soatImage) ;
          documents[1] = new Tehnomechanic("0",technoMDay,technoMMonth,technoMYear,technoImage);
+    }
+
+    public void fixSellprice(int soatYear,int technoMYear){
+        if(soatYear>=2022){
+            sellPrice -=500000;
+        }
+        if(technoMYear>=2022){
+            sellPrice -=500000;
+        }
     }
     
 

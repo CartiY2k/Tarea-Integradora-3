@@ -29,11 +29,7 @@ public class Car extends Vehicle {
                 break;
         }
     }
-    public Car(String numDoors, boolean polarized, TypeCar theTypeCar) {
-        this.numDoors = numDoors;
-        this.polarized = polarized;
-        this.theTypeCar = theTypeCar;
-    }
+    
     @Override
     public double calculateSellPrice() {
         return 0;
